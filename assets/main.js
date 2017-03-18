@@ -23,9 +23,9 @@ function setMessage(message){
 }
 
 function validateInput(guess){
-  if (guess.length == 4){
+  if (guess.length != 4){
     setMessage("Guesses must be exactly 4 characters long.");
-  return false
+    return false;
   }
-  return true
+  return true;
 }
