@@ -7,7 +7,7 @@ function guess() {
     if (answer.value == '' || attempt.value == ''){
       setHiddenFields();
     }
-    if (validateInput(input.value)==false){
+    if (!validateInput(input.value)){
       return false;
     }
     else {
@@ -35,4 +35,20 @@ function validateInput(guess){
     return false;
   }
   return true;
+}
+
+function getResults(input){
+  temp = <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">;
+  for (i=0;i<input.length;i++){
+    if(input.charAt(i)==answer.value.charAt(i)){
+      temp+=`<span class="glyphicon glyphicon-ok"></span>`;
+    }
+    else if(anwer.value.indexOf(input.charAt(i)) > -1){
+      temp+=`<span class="glyphicon glyphicon-transfer"></span>`;
+    }
+    else
+      temp+= `<span class="glyphicon glyphicon-remove"></span>`;
+  }
+  html += '</div></div>'
+  document.getElementById('results').innerHTML += html;
 }
