@@ -39,9 +39,11 @@ function validateInput(guess){
 
 function getResults(input){
   let temp = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
+  let correctCount = 0;
   for (i=0;i<input.length;i++){
     if(input.charAt(i) == answer.value.charAt(i)){
       temp+='<span class="glyphicon glyphicon-ok"></span>';
+      correctCount ++;
     }
     else if(answer.value.indexOf(input.charAt(i)) > -1){
       temp+='<span class="glyphicon glyphicon-transfer"></span>';
@@ -51,4 +53,6 @@ function getResults(input){
   }
   temp += '</div></div>';
   document.getElementById('results').innerHTML += temp;
+  if (correctCount < 4) {return false;}
+  return true;
 }
