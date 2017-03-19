@@ -26,7 +26,6 @@ function guess() {
     }
     else {
       setMessage('Incorrect, try again.');
-      showReplay();
     }
 }
 
