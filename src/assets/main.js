@@ -38,7 +38,7 @@ function validateInput(guess){
 }
 
 function getResults(input){
-  temp = <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">;
+  let temp = <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">;
   for (i=0;i<input.length;i++){
     if(input.charAt(i)==answer.value.charAt(i)){
       temp+=`<span class="glyphicon glyphicon-ok"></span>`;
@@ -49,6 +49,6 @@ function getResults(input){
     else
       temp+= `<span class="glyphicon glyphicon-remove"></span>`;
   }
-  html += '</div></div>';
-  document.getElementById('results').innerHTML += html;
+  temp += '</div></div>';
+  document.getElementById('results').innerHTML += temp;
 }
