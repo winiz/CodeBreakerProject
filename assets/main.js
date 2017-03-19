@@ -53,6 +53,12 @@ function getResults(input){
   }
   temp += '</div></div>';
   document.getElementById('results').innerHTML += temp;
-  if (correctCount < 4) {return false;}
+  if (correctCount < 4) {
+      if (attemp.value >= 10){
+        setMessage("You Lose! :(");
+      }
+    return false;
+  }
+  setMessage("You Win! :)");
   return true;
 }
