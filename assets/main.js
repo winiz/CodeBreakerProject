@@ -49,6 +49,6 @@ function getResults(input){
     else
       temp+= `<span class="glyphicon glyphicon-remove"></span>`;
   }
-  html += '</div></div>'
+  html += '</div></div>';
   document.getElementById('results').innerHTML += html;
 }
