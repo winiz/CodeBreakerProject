@@ -12,7 +12,16 @@ function guess() {
     }
     else {
       attempt.value++;
-      return true;
+    }
+
+    if (getRsults(input.value)){
+      setMessage('You Win! :)');
+    }
+    else if (attempt.value >= 10){
+      setMessage('You Lose! :(');
+    }
+    else {
+      setMessage('Incorrect, try again.');
     }
 }
 
@@ -31,7 +40,7 @@ function setMessage(message){
 
 function validateInput(guess){
   if (guess.length != 4){
-    setMessage("Guesses must be exactly 4 characters long.");
+    setMessage('Guesses must be exactly 4 characters long.');
     return false;
   }
   return true;
@@ -39,11 +48,9 @@ function validateInput(guess){
 
 function getResults(input){
   let temp = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
-  let correctCount = 0;
   for (i=0;i<input.length;i++){
     if(input.charAt(i) == answer.value.charAt(i)){
       temp+='<span class="glyphicon glyphicon-ok"></span>';
-      correctCount ++;
     }
     else if(answer.value.indexOf(input.charAt(i)) > -1){
       temp+='<span class="glyphicon glyphicon-transfer"></span>';
@@ -53,10 +60,7 @@ function getResults(input){
   }
   temp += '</div></div>';
   document.getElementById('results').innerHTML += temp;
-  if ((correctCount < 4) && (attemp.value >= 10)){
-    setMessage("You Lose! :(");
-    return false;
-  }
-  setMessage("You Win! :)");
-  return true;
+
+  if (input == answer.value){return true;}
+  return false;
 }
